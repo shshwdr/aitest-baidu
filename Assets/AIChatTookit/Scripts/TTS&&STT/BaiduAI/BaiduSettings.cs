@@ -1,9 +1,15 @@
 using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
-
+[System.Serializable]
+ class Secrets
+{
+    public string baidu_apikey;
+    public string baidu_clientsecret;
+}
 public class BaiduSettings : MonoBehaviour
 {
     #region 参数定义
@@ -29,9 +35,23 @@ public class BaiduSettings : MonoBehaviour
     [SerializeField] private string m_AuthorizeURL = "https://aip.baidubce.com/oauth/2.0/token";
     #endregion
 
+    private const string SecretsFilePath = "Assets/Resources/secrets.json";
 
     private void Awake()
     {
+        if (File.Exists(SecretsFilePath))
+        {
+            string json = File.ReadAllText(SecretsFilePath);
+            Secrets secrets = JsonUtility.FromJson<Secrets>(json);
+            m_API_key = secrets.baidu_apikey;
+            m_Client_secret = secrets.baidu_clientsecret;
+        }
+        else
+        {
+            Debug.LogError("Secrets file not found");
+        }
+        
+        
         if (m_GetTokenFromServer)
         {
             StartCoroutine(GetToken(GetTokenAction));

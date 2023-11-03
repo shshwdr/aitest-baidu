@@ -18,6 +18,8 @@
 /UserSettings/
 /*.zip
 .idea/
+secrets.json
+secrets.json.meta
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
