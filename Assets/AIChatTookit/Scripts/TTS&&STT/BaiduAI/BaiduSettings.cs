@@ -7,15 +7,19 @@ using UnityEngine.Networking;
 [System.Serializable]
  class Secrets
 {
-    public string baidu_apikey;
-    public string baidu_clientsecret;
+    public string baidu_LLM_apikey;
+    public string baidu_LLM_clientsecret;
+    public string baidu_TTS_apikey;
+    public string baidu_TTS_clientsecret;
 }
 public class BaiduSettings : MonoBehaviour
 {
     #region 参数定义
+
     /// <summary>
     /// API Key
     /// </summary>
+    public bool isTTS = false;
     [Header("填写应用的API Key")] public string m_API_key = string.Empty;
     /// <summary>
     /// Secret Key
@@ -43,8 +47,19 @@ public class BaiduSettings : MonoBehaviour
         {
             string json = File.ReadAllText(SecretsFilePath);
             Secrets secrets = JsonUtility.FromJson<Secrets>(json);
-            m_API_key = secrets.baidu_apikey;
-            m_Client_secret = secrets.baidu_clientsecret;
+
+            if (isTTS)
+            {
+                
+                m_API_key = secrets.baidu_TTS_apikey;
+                m_Client_secret = secrets.baidu_TTS_clientsecret;
+            }
+            else
+            {
+                
+                m_API_key = secrets.baidu_LLM_apikey;
+                m_Client_secret = secrets.baidu_LLM_clientsecret;
+            }
         }
         else
         {

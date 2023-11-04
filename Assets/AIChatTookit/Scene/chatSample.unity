@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1b1d0200206f34ebb05ff1c210f133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpeechRecognizeURL: https://vop.baidu.com/server_api
+  m_SpeechRecognizeURL: http://vop.baidu.com/server_api
   m_Settings: {fileID: 0}
 --- !u!114 &401420929
 MonoBehaviour:
@@ -1218,8 +1218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31310c19ff6236a408accf6c97a1832c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_API_key: "\u586B\u5199apikey"
-  m_Client_secret: "\u586B\u5199\u5BC6\u94A5"
+  isTTS: 1
+  m_API_key: 
+  m_Client_secret: 
   m_GetTokenFromServer: 1
   m_Token: 
   m_AuthorizeURL: https://aip.baidubce.com/oauth/2.0/token
@@ -4175,8 +4176,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 284, y: 0}
-  m_SizeDelta: {x: 548, y: 0}
+  m_AnchoredPosition: {x: 618, y: 0}
+  m_SizeDelta: {x: 1216, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423120622
 MonoBehaviour:
@@ -4287,15 +4288,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ChatSettings:
     m_ChatModel: {fileID: 1864357026}
-    m_TextToSpeech: {fileID: 2023088799}
-    m_SpeechToText: {fileID: 2023088798}
+    m_TextToSpeech: {fileID: 401420927}
+    m_SpeechToText: {fileID: 401420928}
   m_ChatPanel: {fileID: 952192933}
   m_InputWord: {fileID: 2036658115}
   m_TextBack: {fileID: 1684937520}
   m_AudioSource: {fileID: 489438415}
   m_CommitMsgBtn: {fileID: 1936675600}
   m_Animator: {fileID: 196786952}
-  m_IsVoiceMode: 0
+  m_IsVoiceMode: 1
   m_AutoSend: 1
   m_VoiceInputBotton: {fileID: 985290567}
   m_VoiceBottonText: {fileID: 1871013867}
@@ -5880,6 +5881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31310c19ff6236a408accf6c97a1832c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTTS: 0
   m_API_key: 
   m_Client_secret: 
   m_GetTokenFromServer: 1

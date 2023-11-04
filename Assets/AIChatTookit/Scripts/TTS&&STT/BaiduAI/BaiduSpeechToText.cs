@@ -20,7 +20,7 @@ public class BaiduSpeechToText : STT
     private void Awake()
     {
         m_Settings = this.GetComponent<BaiduSettings>();
-        m_SpeechRecognizeURL = "https://vop.baidu.com/server_api";
+       // m_SpeechRecognizeURL = "https://vop.baidu.com/pro_api";// "https://vop.baidu.com/server_api";
     }
     /// <summary>
     /// 语音识别
